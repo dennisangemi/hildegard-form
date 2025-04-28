@@ -329,11 +329,27 @@ elif st.session_state.current_step == 4:
         st.success("✅ Grazie! Il tuo suggerimento è stato inviato con successo.")
         
         # Mostra un riepilogo del suggerimento inviato
-        st.info(f"""
-        **Riepilogo del suggerimento inviato:**
-        - Data liturgia: {st.session_state.selected_date.strftime('%d/%m/%Y')}
-        - Canto: {st.session_state.selected_song_title} ({'Nuovo' if st.session_state.is_new_song else 'Esistente'})
-        """)
+        if st.session_state.is_new_song:
+            # Riepilogo completo per i nuovi canti
+            st.info(f"""
+            **Riepilogo del suggerimento inviato:**
+            - Data liturgia: {st.session_state.selected_date.strftime('%d/%m/%Y')}
+            - Canto: {st.session_state.selected_song_title} (Nuovo)
+            - Autore: {st.session_state.submitted_data.get('author', '')}
+            - Link al testo: {st.session_state.submitted_data.get('text_link', '')}
+            - Link all'audio: {st.session_state.submitted_data.get('audio_link', '')}
+            - Adeguatezza: {st.session_state.submitted_data.get('adequacy', '')}%
+            - Note: {st.session_state.submitted_data.get('notes', '')}
+            """)
+        else:
+            # Riepilogo per i canti esistenti (comportamento originale)
+            st.info(f"""
+            **Riepilogo del suggerimento inviato:**
+            - Data liturgia: {st.session_state.selected_date.strftime('%d/%m/%Y')}
+            - Canto: {st.session_state.selected_song_title} (Esistente)
+            - Adeguatezza: {st.session_state.submitted_data.get('adequacy', '')}%
+            - Note: {st.session_state.submitted_data.get('notes', '')}
+            """)
         
         # Pulsante per inviare un nuovo suggerimento
         if st.button("Invia un nuovo suggerimento"):
