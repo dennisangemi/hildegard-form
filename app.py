@@ -194,9 +194,6 @@ if 'song_list' not in st.session_state:
 if 'current_step' not in st.session_state:
     st.session_state.current_step = 1
 
-# --- Multi-step Form Logic ---
-st.header("Suggerisci un Canto")
-
 # Progress bar to show form completion status
 step_text = {
     1: "Data della liturgia", 
