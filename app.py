@@ -469,19 +469,6 @@ elif st.session_state.current_step == 4:
         go_to_prev_step()
         st.rerun()
 
-# Visualizza i messaggi di stato della connessione
-# Non mostrare più pannelli laterali con messaggi di debug
-# if 'connection_message' in st.session_state and not st.session_state.submission_success:
-#     st.sidebar.info(st.session_state.connection_message)
-    
-# if 'connection_error' in st.session_state:
-#     st.sidebar.error(st.session_state.connection_error)
-
-# Visualizza le informazioni di debug in una sezione espandibile
-# if 'debug_info' in st.session_state:
-#     with st.expander("Informazioni di debug"):
-#         st.text(st.session_state.debug_info)
-
 # Handle form submission logic (same as before)
 if st.session_state.form_submitted:
     # Validation
