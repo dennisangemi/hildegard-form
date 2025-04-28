@@ -166,20 +166,6 @@ st.markdown("""Compila questo modulo per suggerire un canto liturgico da utilizz
 Segui i passaggi e inserisci le informazioni richieste: il sistema ti aiuterà a evitare duplicati e a fornire tutti i dettagli utili.
 """)
 
-# Aggiungo informazioni su Hildegard in una sezione espandibile
-with st.expander("Informazioni su Hildegard"):
-    st.markdown("""**Cos'è Hildegard?** Un suggeritore automatico che aiuta a selezionare i canti più adatti per la liturgia domenicale,
-    basandosi sul confronto dei testi con le letture del giorno.
-    
-    **Come funziona?** L'algoritmo analizza le letture della domenica e confronta il testo con una vasta raccolta di canti 
-    liturgici per suggerirti quelli più pertinenti.
-    
-    **Come contribuire?** Attraverso questo modulo puoi suggerire canti che ritieni adatti per specifiche liturgie, contribuendo 
-    così a migliorare le raccomandazioni di Hildegard.
-    
-    Per maggiori informazioni visita [il sito ufficiale di Hildegard](https://hildegard.it/).
-    """)
-
 # Initialize session state variables if they don't exist
 if 'selected_song_title' not in st.session_state:
     st.session_state.selected_song_title = None # The final chosen title
