@@ -326,7 +326,7 @@ elif st.session_state.current_step == 4:
     # Controllo se abbiamo già inviato con successo
     if st.session_state.submission_success:
         # Mostra solo il messaggio di conferma con dettagli del suggerimento
-        st.success("✅ Grazie! Il tuo suggerimento è stato inviato con successo.")
+        st.success("✅ Grazie! Il tuo suggerimento è stato inviato con successo. Verrà elaborato al più presto: non preoccuparti se non lo vedi nella home di hildegard.it")
         
         # Mostra un riepilogo del suggerimento inviato
         if st.session_state.is_new_song:
