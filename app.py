@@ -307,13 +307,6 @@ elif st.session_state.current_step == 3:
         placeholder="Seleziona un canto o aggiungi nuovo..."
     )
     
-    # Additional info based on selection
-    if st.session_state.selected_song_title:
-        if st.session_state.is_new_song:
-            st.success(f"Stai aggiungendo un nuovo canto: **{st.session_state.selected_song_title}**")
-        else:
-            st.info(f"Hai selezionato un canto esistente: **{st.session_state.selected_song_title}**")
-    
     # Navigation buttons
     col1, col2 = st.columns(2)
     with col1:
