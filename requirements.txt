@@ -1,0 +1,6 @@
+streamlit
+pandas
+requests
+gspread
+google-auth
+thefuzz[speedup]
