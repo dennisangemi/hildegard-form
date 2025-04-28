@@ -56,10 +56,10 @@ def connect_to_gsheets():
     st.session_state.connection_message = "Connessione al database in corso..."
     
     try:
-        # Usa solo le credenziali da file JSON
-        if os.path.exists("creds.json"):
-            credentials = service_account.Credentials.from_service_account_file(
-                "creds.json",
+        # Utilizza direttamente i secrets di Streamlit
+        if "gcp_service_account" in st.secrets:
+            credentials = service_account.Credentials.from_service_account_info(
+                st.secrets["gcp_service_account"],
                 scopes=[
                     "https://spreadsheets.google.com/feeds",
                     "https://www.googleapis.com/auth/spreadsheets",
@@ -115,8 +115,8 @@ def connect_to_gsheets():
                 "new_songs_sheet": st.session_state.new_songs_sheet
             }
         else:
-            # Creds.json non trovato
-            st.session_state.connection_error = "File creds.json non trovato nella directory dell'applicazione."
+            # Secrets non configurati
+            st.session_state.connection_error = "Le credenziali di servizio non sono configurate nei secrets di Streamlit."
             return "SIMULATION_MODE"
             
     except Exception as e:
