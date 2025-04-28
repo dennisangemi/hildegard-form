@@ -163,7 +163,7 @@ except Exception:
 st.title("Suggeritore di Canti per Hildegard")
 st.markdown("""Compila questo modulo per suggerire un canto liturgico da utilizzare su [Hildegard](https://hildegard.it/). 
 
-Segui i passaggi e inserisci le informazioni richieste: il sistema ti aiuterà a evitare duplicati e a fornire tutti i dettagli utili.
+Segui i passaggi e inserisci le informazioni richieste: il sistema elaborerà il tuo contributo e lo pubblicherà il prima possibile.
 """)
 
 # Initialize session state variables if they don't exist
@@ -213,7 +213,7 @@ def go_to_prev_step():
 
 # Content for STEP 1 - Date selection
 if st.session_state.current_step == 1:
-    st.markdown("Seleziona la data della liturgia per cui vuoi suggerire un canto.")
+    st.markdown("Seleziona la data della liturgia per cui vuoi suggerire un canto")
     
     # Selettore calendario con formato italiano
     selected_date = st.date_input(
@@ -233,7 +233,7 @@ if st.session_state.current_step == 1:
 
 # Content for STEP 2 - Free text search for songs
 elif st.session_state.current_step == 2:
-    st.markdown("Inserisci il titolo del canto che vuoi suggerire.")
+    st.markdown("Inserisci il titolo del canto che vuoi suggerire")
     
     # Initialize a separate session state variable for storing the search value
     if 'search_term_value' not in st.session_state:
@@ -260,7 +260,7 @@ elif st.session_state.current_step == 2:
 
 # Content for STEP 3 - Select from dropdown or add new
 elif st.session_state.current_step == 3:
-    st.markdown("Seleziona un canto esistente o aggiungi un nuovo canto.")
+    st.markdown("Seleziona un canto esistente o aggiungi un nuovo canto")
     
     # Filter song list based on search term from step 2, using fuzzy matching
     search_term = st.session_state.search_term_value  # Use our separate storage variable
